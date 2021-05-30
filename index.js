@@ -15,7 +15,7 @@ const conn = mysql.createConnection({
     host:'localhost',
     user:'root',
     password:'',
-    database:'to_develop'
+    database:'my_data'
 })
 
 app.use(cors(corsOptions))
@@ -39,7 +39,7 @@ app.post('/todo',function(req,res){
     conn.query(sql,function(err){
         if(err) 
             throw err
-        console.log('Data Added')
+        console.log('Data telah ditambahkan')
     })
     res.end()
 })
@@ -59,10 +59,10 @@ app.delete('/todo/:nama',function(req,res){
     conn.query(query,function(err,result){
         if(err)
             throw err
-        res.send("Deleted !")
+        res.send("Data telah dihapus")
     })
 })
 
 app.listen(3000, () => {
-    console.log('Server sudah berjalan pada port 3000')
+    console.log('Server sudah berjalan')
 })
